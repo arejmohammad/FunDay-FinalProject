@@ -1,0 +1,58 @@
+//Home Page
+"zoo" = "Zoo and Gardens";
+"game" = "Amusement Park and games";
+"museums" = "Museums and libraries";
+"Adventure" = "Adventure";
+"movie" = "Movies and showing";
+"Events" = "Events";
+//Login and sigup
+"username" = "Username";
+"email" = "Email";
+"pass" = "Password";
+"confpass" = "Confirm Password";
+"reset" = "Reset Password";
+"log" = "Log in";
+"sign" = "Sign Up";
+//Alert
+"Ops" = "Ops!";
+"cpnm" = "confirm password not match";
+"OK" = "OK";
+"Registering" = "Registering";
+"success" = "you are successfully register";
+//List of Places
+//zoo
+"strawberry" = "Hanging strawberry gardens";
+"strawberry2" = "Hanging strawberry gardens offer you a unique opportunity to get to know the strawberry plant, try picking its delicious fresh fruits with your hands and watch bumblebees pollinate the flowers";
+"woody" = "woody park";
+"woody2" = "experience of feeding birds , pets and children's game";
+"alwatan" =  "alwatan park";
+"alwatan2" =  "one of the most important gardens in Riyadh, where the riyadh tower is located";
+"zoo" = "Riyadh Zoo";
+"zoo2" = "large popular zoo opend in 1987 , featuring 1500+ animals , train rides, prayer halls";
+//game
+"tramplin" = "Gravity Trampoline Parks";
+"tramplin2" = "Trampoline , Rocks climping , VR and softplay";
+"skyzone" = "Sky Zone Trampline Park";
+"skyzone2" = "the original home of wall to all aerial action . we never stop searching for new ways to play";
+"sparky" = "Sparky's";
+"sparky2" = "your one stop place to accomodate parties school trips, and all entertainment activites";
+//museums
+"saqr" = "Saqer aljazirah royal saudi air force aviation museum";
+"saqr2" = "Airliners , helicopters & military planes , plus exhibits on the history of the royal saudi air force";
+"national" = "The Saudi National museum";
+"national2" = "restored former palace with a library, art gallery, cultural exhibits & a large garden";
+"lllusions" = "museum of lllusions";
+"lllusions2" = "The museum of lllusions is the place where you can engage in over 80 mind bending exhibits that will shock your senses and puzzle your perceptions";
+//Adventure
+"doos" = "Doos karting";
+"doos2" = "go karting like never before.. experience the astounding addictive fun with KSA'S first ever electric karts";
+//movie
+//Events
+
+
+
+
+
+
+
+
