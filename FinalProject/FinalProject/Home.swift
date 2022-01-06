@@ -48,21 +48,20 @@ extension Home : UICollectionViewDelegate , UICollectionViewDataSource , UIColle
 
         return cell
     }
+    
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return .init(width: 200, height: 240)
     }
+    
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc1 = ListOfPlaces()
-        vc1.section = indexPath.row
-        i = indexPath.row
-        self.performSegue(withIdentifier: "move1", sender: nil)
-    }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "move1" {
-            let vc1 = segue.destination as! ListOfPlaces
-            vc1.section = i
-            print(i)
+        let vc1 = storyboard?.instantiateViewController(withIdentifier: "ListOfPlaces") as! ListOfPlaces
+        
+        vc1.selectedSection = indexPath.row
+        
+        navigationController?.pushViewController(vc1, animated: true)
         }
-    }
+
 }
 

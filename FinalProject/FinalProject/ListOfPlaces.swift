@@ -3,91 +3,124 @@
 import UIKit
 
 class ListOfPlaces: UIViewController {
-    var section = 0
+    var selectedSection = 0
+    var object : NameOfPlaces?
     @IBOutlet weak var plaseslist: UITableView!
     @IBOutlet weak var searchplace: UISearchBar!
     
     var arrayOfZoo = [
-//        nameOfPlaces(name: "strawberry".loclized(), desc: "strawberry2".loclized()),
-//        nameOfPlaces(name: "woody".loclized(), desc: "woody2".loclized()),
-//        nameOfPlaces(name: "alwatan".loclized(), desc: "alwatan2".loclized()),
-//        nameOfPlaces(name: "zoo".loclized(), desc: "zoo2".loclized())
-//        nameOfPlaces(name: "zoo", desc: "zoo"),
-        nameOfPlaces(name: "zoo", desc: "zoo"),
-        nameOfPlaces(name: "zoo", desc: "zoo"),
-        nameOfPlaces(name: "zoo", desc: "zoo")
+        NameOfPlaces(name: "strawberry".loclized(), desc: "strawberry2".loclized(), image: UIImage(named: "strawberry1")!),
+        NameOfPlaces(name: "woody".loclized(), desc: "woody2".loclized(), image: UIImage(named: "67")!),
+        NameOfPlaces(name: "alwatan".loclized(), desc: "alwatan2".loclized(), image: UIImage(named: "67")!),
+        NameOfPlaces(name: "zoo1".loclized(), desc: "zoo2".loclized(), image: UIImage(named: "67")!)
     ]
     var arrayOfGame = [
-        nameOfPlaces(name: "game", desc: "game"),
-        nameOfPlaces(name: "game", desc: "game")
+        NameOfPlaces(name: "tramplin".loclized(), desc: "tramplin2".loclized(), image: UIImage(named: "45")!),
+        NameOfPlaces(name: "skyzone".loclized(), desc: "skyzone2".loclized(), image: UIImage(named: "45")!),
+        NameOfPlaces(name: "sparky".loclized(), desc: "sparky2".loclized(), image: UIImage(named: "45")!),
+        NameOfPlaces(name: "bowling".loclized(), desc: "bowling2".loclized(), image: UIImage(named: "45")!),
+        NameOfPlaces(name: "snowy".loclized(), desc: "snowy2".loclized(), image: UIImage(named: "45")!),
+        NameOfPlaces(name: "winter".loclized(), desc: "winter2".loclized(), image: UIImage(named: "45")!)
     ]
     var ArrayOfMuseums = [
-        nameOfPlaces(name: "musuem", desc: "Museums"),
-        nameOfPlaces(name: "Museums", desc: "Museums")
+        NameOfPlaces(name: "saqr".loclized(), desc: "saqr2".loclized(), image: UIImage(named: "89")!),
+        NameOfPlaces(name: "national".loclized(), desc: "national2".loclized(), image: UIImage(named: "89")!),
+        NameOfPlaces(name: "lllusions".loclized(), desc: "lllusions2".loclized(), image: UIImage(named: "89")!),
+        NameOfPlaces(name: "alajlan".loclized(), desc: "alajlan2".loclized(), image: UIImage(named: "89")!)
     ]
     var ArrayOfAdventure = [
-        nameOfPlaces(name: "Adventure", desc: "Adventure"),
-        nameOfPlaces(name: "Adventure", desc: "Adventure")
+        NameOfPlaces(name: "doos".loclized(), desc: "doos2".loclized(), image: UIImage(named: "098")!),
+        NameOfPlaces(name: "final".loclized(), desc: "final2".loclized(), image: UIImage(named: "098")!),
+        NameOfPlaces(name: "edge".loclized(), desc: "edge2".loclized(), image: UIImage(named: "098")!),
+        NameOfPlaces(name: "combact".loclized(), desc: "combact2".loclized(), image: UIImage(named: "098")!),
+        NameOfPlaces(name: "snow".loclized(), desc: "snow2".loclized(), image: UIImage(named: "098")!)
     ]
     var ArrayOfMovie = [
-        nameOfPlaces(name: "Movie", desc: "Movie"),
-        nameOfPlaces(name: "Movie", desc: "Movie")
+        NameOfPlaces(name: "vox".loclized(), desc: "vox1".loclized(), image: UIImage(named: "987")!),
+        NameOfPlaces(name: "muvi".loclized(), desc: "muvi1".loclized(), image: UIImage(named: "987")!),
+        NameOfPlaces(name: "amc".loclized(), desc: "amc1".loclized(), image: UIImage(named: "987")!)
     ]
     var ArrayOfEvents = [
-        nameOfPlaces(name: "Events", desc: "Events"),
-        nameOfPlaces(name: "Events", desc: "Events")
+        NameOfPlaces(name: "baker".loclized(), desc: "baker2".loclized(), image: UIImage(named: "234")!),
+        NameOfPlaces(name: "abubkr".loclized(), desc: "abubkr2".loclized(), image: UIImage(named: "234")!),
+        NameOfPlaces(name: "mohammad".loclized(), desc: "mohammad2".loclized(), image: UIImage(named: "234")!),
+        NameOfPlaces(name: "alali".loclized(), desc: "alali2".loclized(), image: UIImage(named: "234")!),
+        NameOfPlaces(name: "boulvard".loclized(), desc: "boulvard2".loclized(), image: UIImage(named: "234")!),
+        NameOfPlaces(name: "nabd".loclized(), desc: "nabd2".loclized(), image: UIImage(named: "234")!),
+        NameOfPlaces(name: "oises".loclized(), desc: "oises2".loclized(), image: UIImage(named: "234")!),
+        NameOfPlaces(name: "alathryah".loclized(), desc: "alathryah2".loclized(), image: UIImage(named: "234")!),
     ]
     
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        print(section)
+        super.viewDidLoad()        
     }
     
     
 }
 extension ListOfPlaces : UITableViewDelegate , UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
+        
+        if selectedSection == 0 {
             return arrayOfZoo.count
-        }else if section == 1 {
+        }else if selectedSection == 1 {
             return arrayOfGame.count
-        }else if section == 2 {
+        }else if selectedSection == 2 {
             return ArrayOfMuseums.count
-        } else if section == 3 {
+        } else if selectedSection == 3 {
             return ArrayOfAdventure.count
-        } else if section == 4 {
+        } else if selectedSection == 4 {
             return ArrayOfMovie.count
         }else {
             return ArrayOfEvents.count
         }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
         let cell = plaseslist.dequeueReusableCell(withIdentifier: "NameAndDescCell", for: indexPath) as! NameAndDescCell
-        if section == 0 {
+        if selectedSection == 0 {
             cell.placeName.text = arrayOfZoo[indexPath.row].name
             cell.placeDesc.text = arrayOfZoo[indexPath.row].desc
-        }else if section == 1 {
+            cell.placeImage.image = arrayOfZoo[indexPath.row].image
+        }else if selectedSection == 1 {
             cell.placeName.text = arrayOfGame[indexPath.row].name
             cell.placeDesc.text = arrayOfGame[indexPath.row].desc
-        }else if section == 2 {
+            cell.placeImage.image = arrayOfGame[indexPath.row].image
+        }else if selectedSection == 2 {
             cell.placeName.text = ArrayOfMuseums[indexPath.row].name
             cell.placeDesc.text = ArrayOfMuseums[indexPath.row].desc
-        } else if section == 3 {
+            cell.placeImage.image = ArrayOfMuseums[indexPath.row].image
+        } else if selectedSection == 3 {
             cell.placeName.text = ArrayOfAdventure[indexPath.row].name
             cell.placeDesc.text = ArrayOfAdventure[indexPath.row].desc
-        } else if section == 4 {
+            cell.placeImage.image = ArrayOfAdventure[indexPath.row].image
+        } else if selectedSection == 4 {
             cell.placeName.text = ArrayOfMovie[indexPath.row].name
             cell.placeDesc.text = ArrayOfMovie[indexPath.row].desc
+            cell.placeImage.image = ArrayOfMovie[indexPath.row].image
         }else {
             cell.placeName.text = ArrayOfEvents[indexPath.row].name
             cell.placeDesc.text = ArrayOfEvents[indexPath.row].desc
+            cell.placeImage.image = ArrayOfEvents[indexPath.row].image
         }
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "move2", sender: nil)
+        let vc = storyboard?.instantiateViewController(withIdentifier: "DetailsOfPlace") as! DetailsOfPlace
+        if selectedSection == 0 {
+            vc.detalis = arrayOfZoo[indexPath.row]
+        }else if selectedSection == 1 {
+            vc.detalis = arrayOfGame[indexPath.row]
+        }else if selectedSection == 2 {
+            vc.detalis = ArrayOfMuseums[indexPath.row]
+        } else if selectedSection == 3 {
+            vc.detalis = ArrayOfAdventure[indexPath.row]
+        } else if selectedSection == 4 {
+            vc.detalis = ArrayOfMovie[indexPath.row]
+        }else {
+            vc.detalis = ArrayOfEvents[indexPath.row]
+        }
+        navigationController?.pushViewController(vc, animated: true)
     }
-    
 }

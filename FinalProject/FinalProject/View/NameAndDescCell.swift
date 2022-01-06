@@ -6,6 +6,7 @@ class NameAndDescCell: UITableViewCell {
 
     @IBOutlet weak var placeName: UILabel!
     @IBOutlet weak var placeDesc: UILabel!
+    @IBOutlet weak var placeImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
     }

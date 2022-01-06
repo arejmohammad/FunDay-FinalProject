@@ -8,7 +8,8 @@ struct Places {
     var image : UIImage
 }
 
-struct nameOfPlaces {
+struct NameOfPlaces {
     var name : String
     var desc : String
+    var image : UIImage
 }

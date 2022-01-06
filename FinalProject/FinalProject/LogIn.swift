@@ -125,6 +125,7 @@ class LogIn: UIViewController {
     @IBAction func signup(_ sender: Any) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "SignUp") as! SignUp
 //vc.modalTransitionStyle = .crossDissolve
+
 self.present(vc, animated: true, completion: nil)
     }
 }

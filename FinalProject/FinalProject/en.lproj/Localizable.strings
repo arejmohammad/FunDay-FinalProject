@@ -26,16 +26,22 @@
 "woody" = "woody park";
 "woody2" = "experience of feeding birds , pets and children's game";
 "alwatan" =  "alwatan park";
-"alwatan2" =  "one of the most important gardens in Riyadh, where the riyadh tower is located";
-"zoo" = "Riyadh Zoo";
+"alwatan2" =  "A large park that includes a garden. We went to our land and played our games under the Riyadh Waters";
+"zoo1" = "Riyadh Zoo";
 "zoo2" = "large popular zoo opend in 1987 , featuring 1500+ animals , train rides, prayer halls";
 //game
 "tramplin" = "Gravity Trampoline Parks";
 "tramplin2" = "Trampoline , Rocks climping , VR and softplay";
 "skyzone" = "Sky Zone Trampline Park";
-"skyzone2" = "the original home of wall to all aerial action . we never stop searching for new ways to play";
+"skyzone2" = "indoor Trampoline Park & rock climbing walls.Visitors of all ages can bounce from one trampoline to another, jump into pits filled with foam blocks and play a trampoline-based version of dodgeball. A fun place that also accomodates parties, school trips, and other entertainment activities";
 "sparky" = "Sparky's";
 "sparky2" = "your one stop place to accomodate parties school trips, and all entertainment activites";
+"bowling" = "Go Bowling";
+"bowling2" = "Go Bowling is a family-frindley bowling club and an entertainment center in Riyadh for kids and young, VR games , arcade games, challange zone for laser strike games";
+"snowy" = "Snowy Forest";
+"snowy2" = "Safe world full of fun";
+"winter" = "Winter WonderLand";
+"winter2" = "Winter WonderLand One of the activities of the Riyadh season, which includes more than 52 games";
 //museums
 "saqr" = "Saqer aljazirah royal saudi air force aviation museum";
 "saqr2" = "Airliners , helicopters & military planes , plus exhibits on the history of the royal saudi air force";
@@ -43,11 +49,47 @@
 "national2" = "restored former palace with a library, art gallery, cultural exhibits & a large garden";
 "lllusions" = "museum of lllusions";
 "lllusions2" = "The museum of lllusions is the place where you can engage in over 80 mind bending exhibits that will shock your senses and puzzle your perceptions";
+"alajlan" = "Alajlan Art Gallery";
+"alajlan2" = "One of Riyadh's best art shows, it's arabic calligraphy collection is one of a kind ,visually pleasing.. an amizing artist Mohammad Alajlan's Art Gallery";
 //Adventure
 "doos" = "Doos karting";
 "doos2" = "go karting like never before.. experience the astounding addictive fun with KSA'S first ever electric karts";
+"final" = "Final Escape";
+"final2" = "There will be two to six people in it. You can get out of the closed room after you solve a series of puzzles and symbols";
+"edge" = "edge of the world";
+"edge2" = "Ryiyadh track to edge of the world ,hiking sand board , volleyball, fireworks in the sky and music in the night";
+"combact" = "Combat Field";
+"combact2" = "from riyadh season .. Living a life through the ages with paintball fields, enjoying unparalleled adventures, and in the Baroud area, learning about the history of weapons.. Combat Field will raise your adrenaline level. Live the adventure in it";
+"snow" = "Snow City";
+"snow2" = "Snow City is the first and only snow park in Saudi arabia, where you find unlimited fun for the family members. here the temperature in below zero everyday";
 //movie
+"vox" = "Vox Cinema";
+"vox1" = "Vox Cinema , the middle east's most innovative cinema, foucused on providing a simply amazing experience for our guestts";
+"muvi" = "Muvi Cinema";
+"muvi1" = "Muvi Cinemas is the first in the Kingdom of Saudi Arabia to host the Dolby Cinema and Samsung Onyx experiences, in addition to other experiences such as Movie Suites and ScreenX.. This site includes 13 cinema halls and has a capacity of 1,400 seats to watch the latest releases of Hollywood, Bollywood and local films";
+"amc" = "AMC Cinema";
+"amc1" = "In all AMC Cinemas branches, you will find comfortable seats to relax with back and feet, drinks and delicious meals";
 //Events
+"baker" = "Baker Alshdi Theatre";
+"baker2" = "Baker Alshdi Theatre One of the largest theaters in Riyadh";
+"abubkr" = "Abu Bakr Salem Stage";
+"abubkr2" = "The theater of the late artist Abu Baker `salem with a capacity of 6 thousand people, and this comes in honor of the symbols of Saudi art and song, and in appreciation of fine and authentic art";
+"mohammad" = "Mohammad Abdu Arena";
+"mohammad2" ="A huge stage that can hold up to 18 thousnd attendees , and event organizers were so professional there";
+"alali" = "Mohammad Alali Theater";
+"alali2"= "The Mohammad Alali Theater is perfectly orgnized and the viewing angle is clear from any whre in the theater";
+"boulvard" = "Boulevard Riyadh City";
+"boulvard2"="The preferred destination for tourists is Boulevard Riyadh City, which consists of nine secondary areas beyond imagination, from the vast ambiance of Square Square with its huge digital screens to an integrated snow city with its fun winter games. Each area has its own group to suit all ages and tastes";
+"nabd" = "Nabdh Al-Riyadh";
+"nabd2" = "From the field of unification of the kingdom on the land, we find all kinds of arts from every Saudi region, entertainment and music events, and international and local shows, in which the atmosphere of mud houses and feel their warmth, and we see our history that enhances our culture on the walls of Al-Masmak Palace with 3D";
+"oises" = "Oasis";
+"oises2" = "Between the dunes of influence and the edges of the sky, you will live an experience that is all magic and imagination as far as the eye can see. Oasis nights are unparalleled, between the finest international restaurants, arts, performances and various activities to the most beautiful masterpieces, each masterpiece with a story that mimics the beauty of the place";
+"alathryah" = "Al Atheriya";
+"alathryah2" = "A Najd region with a cosmopolitan spirit, where you live a luxurious and authentic experience with the melodies of jazz, piano and other music.";
+//
+//favorite
+"favorite" = "No Favorite yet";
+"anything" = "Hmm.. it doesn't look like you added anything to your favorites list";
 
 
 
