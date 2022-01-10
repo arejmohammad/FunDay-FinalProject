@@ -1,66 +1,66 @@
 
-
 import UIKit
 
 class ListOfPlaces: UIViewController {
+  
     var selectedSection = 0
     var object : NameOfPlaces?
+
+
     @IBOutlet weak var plaseslist: UITableView!
     @IBOutlet weak var searchplace: UISearchBar!
     
     var arrayOfZoo = [
         NameOfPlaces(name: "strawberry".loclized(), desc: "strawberry2".loclized(), image: UIImage(named: "strawberry1")!),
-        NameOfPlaces(name: "woody".loclized(), desc: "woody2".loclized(), image: UIImage(named: "67")!),
-        NameOfPlaces(name: "alwatan".loclized(), desc: "alwatan2".loclized(), image: UIImage(named: "67")!),
-        NameOfPlaces(name: "zoo1".loclized(), desc: "zoo2".loclized(), image: UIImage(named: "67")!)
+        NameOfPlaces(name: "woody".loclized(), desc: "woody2".loclized(), image: UIImage(named: "woody1")!),
+        NameOfPlaces(name: "alwatan".loclized(), desc: "alwatan2".loclized(), image: UIImage(named: "alwatan1")!),
+        NameOfPlaces(name: "zoo1".loclized(), desc: "zoo2".loclized(), image: UIImage(named: "zoo1")!)
     ]
     var arrayOfGame = [
-        NameOfPlaces(name: "tramplin".loclized(), desc: "tramplin2".loclized(), image: UIImage(named: "45")!),
-        NameOfPlaces(name: "skyzone".loclized(), desc: "skyzone2".loclized(), image: UIImage(named: "45")!),
-        NameOfPlaces(name: "sparky".loclized(), desc: "sparky2".loclized(), image: UIImage(named: "45")!),
-        NameOfPlaces(name: "bowling".loclized(), desc: "bowling2".loclized(), image: UIImage(named: "45")!),
-        NameOfPlaces(name: "snowy".loclized(), desc: "snowy2".loclized(), image: UIImage(named: "45")!),
-        NameOfPlaces(name: "winter".loclized(), desc: "winter2".loclized(), image: UIImage(named: "45")!)
+        NameOfPlaces(name: "tramplin".loclized(), desc: "tramplin2".loclized(), image: UIImage(named: "tramplin1")!),
+        NameOfPlaces(name: "skyzone".loclized(), desc: "skyzone2".loclized(), image: UIImage(named: "skyzone1")!),
+        NameOfPlaces(name: "sparky".loclized(), desc: "sparky2".loclized(), image: UIImage(named: "spark1")!),
+        NameOfPlaces(name: "bowling".loclized(), desc: "bowling2".loclized(), image: UIImage(named: "go1")!),
+        NameOfPlaces(name: "snowy".loclized(), desc: "snowy2".loclized(), image: UIImage(named: "snowy1")!),
+        NameOfPlaces(name: "winter".loclized(), desc: "winter2".loclized(), image: UIImage(named: "winter1")!)
     ]
     var ArrayOfMuseums = [
-        NameOfPlaces(name: "saqr".loclized(), desc: "saqr2".loclized(), image: UIImage(named: "89")!),
-        NameOfPlaces(name: "national".loclized(), desc: "national2".loclized(), image: UIImage(named: "89")!),
-        NameOfPlaces(name: "lllusions".loclized(), desc: "lllusions2".loclized(), image: UIImage(named: "89")!),
-        NameOfPlaces(name: "alajlan".loclized(), desc: "alajlan2".loclized(), image: UIImage(named: "89")!)
+        NameOfPlaces(name: "saqr".loclized(), desc: "saqr2".loclized(), image: UIImage(named: "saqr1")!),
+        NameOfPlaces(name: "national".loclized(), desc: "national2".loclized(), image: UIImage(named: "national1")!),
+        NameOfPlaces(name: "lllusions".loclized(), desc: "lllusions2".loclized(), image: UIImage(named: "lllusions1")!),
+        NameOfPlaces(name: "alajlan".loclized(), desc: "alajlan2".loclized(), image: UIImage(named: "ajlan1")!)
     ]
     var ArrayOfAdventure = [
-        NameOfPlaces(name: "doos".loclized(), desc: "doos2".loclized(), image: UIImage(named: "098")!),
-        NameOfPlaces(name: "final".loclized(), desc: "final2".loclized(), image: UIImage(named: "098")!),
-        NameOfPlaces(name: "edge".loclized(), desc: "edge2".loclized(), image: UIImage(named: "098")!),
-        NameOfPlaces(name: "combact".loclized(), desc: "combact2".loclized(), image: UIImage(named: "098")!),
-        NameOfPlaces(name: "snow".loclized(), desc: "snow2".loclized(), image: UIImage(named: "098")!)
+        NameOfPlaces(name: "doos".loclized(), desc: "doos2".loclized(), image: UIImage(named: "doos1")!),
+        NameOfPlaces(name: "final".loclized(), desc: "final2".loclized(), image: UIImage(named: "final1")!),
+        NameOfPlaces(name: "edge".loclized(), desc: "edge2".loclized(), image: UIImage(named: "edge1")!),
+        NameOfPlaces(name: "combact".loclized(), desc: "combact2".loclized(), image: UIImage(named: "combat1")!),
+        NameOfPlaces(name: "snow".loclized(), desc: "snow2".loclized(), image: UIImage(named: "snow1")!)
     ]
     var ArrayOfMovie = [
-        NameOfPlaces(name: "vox".loclized(), desc: "vox1".loclized(), image: UIImage(named: "987")!),
-        NameOfPlaces(name: "muvi".loclized(), desc: "muvi1".loclized(), image: UIImage(named: "987")!),
-        NameOfPlaces(name: "amc".loclized(), desc: "amc1".loclized(), image: UIImage(named: "987")!)
+        NameOfPlaces(name: "vox".loclized(), desc: "vox1".loclized(), image: UIImage(named: "vox1")!),
+        NameOfPlaces(name: "muvi".loclized(), desc: "muvi1".loclized(), image: UIImage(named: "muvi1")!),
+        NameOfPlaces(name: "amc".loclized(), desc: "amc1".loclized(), image: UIImage(named: "amc1")!)
     ]
     var ArrayOfEvents = [
-        NameOfPlaces(name: "baker".loclized(), desc: "baker2".loclized(), image: UIImage(named: "234")!),
-        NameOfPlaces(name: "abubkr".loclized(), desc: "abubkr2".loclized(), image: UIImage(named: "234")!),
-        NameOfPlaces(name: "mohammad".loclized(), desc: "mohammad2".loclized(), image: UIImage(named: "234")!),
-        NameOfPlaces(name: "alali".loclized(), desc: "alali2".loclized(), image: UIImage(named: "234")!),
-        NameOfPlaces(name: "boulvard".loclized(), desc: "boulvard2".loclized(), image: UIImage(named: "234")!),
-        NameOfPlaces(name: "nabd".loclized(), desc: "nabd2".loclized(), image: UIImage(named: "234")!),
-        NameOfPlaces(name: "oises".loclized(), desc: "oises2".loclized(), image: UIImage(named: "234")!),
-        NameOfPlaces(name: "alathryah".loclized(), desc: "alathryah2".loclized(), image: UIImage(named: "234")!),
+        NameOfPlaces(name: "baker".loclized(), desc: "baker2".loclized(), image: UIImage(named: "baker1")!),
+        NameOfPlaces(name: "abubkr".loclized(), desc: "abubkr2".loclized(), image: UIImage(named: "abubkr1")!),
+        NameOfPlaces(name: "mohammad".loclized(), desc: "mohammad2".loclized(), image: UIImage(named: "mohammad1")!),
+        NameOfPlaces(name: "alali".loclized(), desc: "alali2".loclized(), image: UIImage(named: "alali1")!),
+        NameOfPlaces(name: "boulvard".loclized(), desc: "boulvard2".loclized(), image: UIImage(named: "boulvard1")!),
+        NameOfPlaces(name: "nabd".loclized(), desc: "nabd2".loclized(), image: UIImage(named: "nabd1")!),
+        NameOfPlaces(name: "oises".loclized(), desc: "oises2".loclized(), image: UIImage(named: "oises1")!),
+        NameOfPlaces(name: "alathryah".loclized(), desc: "alathryah2".loclized(), image: UIImage(named: "alathryah5")!),
     ]
     
-    
     override func viewDidLoad() {
-        super.viewDidLoad()        
-    }
+        super.viewDidLoad()
     
+    }
     
 }
 extension ListOfPlaces : UITableViewDelegate , UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         if selectedSection == 0 {
             return arrayOfZoo.count
         }else if selectedSection == 1 {

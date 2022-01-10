@@ -108,7 +108,9 @@ class LogIn: UIViewController {
         Auth.auth().signIn(withEmail: emailT.text!, password: passwordT.text!) {  authResult, error in
             if error == nil {
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home") as! UITabBarController
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
+                print("log in succefuly")
             }else{
                 print(error?.localizedDescription)
                 if Auth.auth().currentUser != nil {

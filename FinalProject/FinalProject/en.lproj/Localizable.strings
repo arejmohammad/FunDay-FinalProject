@@ -90,11 +90,13 @@
 //favorite
 "favorite" = "No Favorite yet";
 "anything" = "Hmm.. it doesn't look like you added anything to your favorites list";
-
-
-
-
-
+// deatails
+"cost" = "Cost";
+"rate" = "Rateing";
+"free" = "Free";
+"goto" = "Take me to the Location";
+"save" = "Save to favorite List";
+"differ" = "Different depending on the chosen event";
 
 
 

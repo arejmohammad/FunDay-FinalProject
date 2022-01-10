@@ -1,22 +1,25 @@
 
 import UIKit
 import Lottie
+import Firebase
 
 class FavoriteList: UIViewController {
     
     var favoriteArray = [NameOfPlaces]()
 
-
+    let db = Firestore.firestore()
     @IBOutlet weak var FavList: UITableView!
     @IBOutlet weak var empty1: UILabel!
     @IBOutlet weak var empty2: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         empty1.text = "favorite".loclized()
         empty2.text = "anything".loclized()
 //        favoriteArray.append(nameOfPlaces(name: "Areej", desc: "mohammad", image: UIImage(systemName: "heart")!))
         if favoriteArray.isEmpty == true {
+            
             configureAnimation()
             empty1.isHidden = false
             empty2.isHidden = false
@@ -25,6 +28,7 @@ class FavoriteList: UIViewController {
             empty2.isHidden = true
         }
     }
+  
     func configureAnimation() {
         let animation = Animation.named("67812-empty-box-animation")
         let animationView = AnimationView(animation:animation)

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		820B623D2786DAA000146A59 /* PhotosVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820B623C2786DAA000146A59 /* PhotosVC.swift */; };
 		826D6FF7278177DA00FC0B35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826D6FF6278177DA00FC0B35 /* AppDelegate.swift */; };
 		826D6FF9278177DA00FC0B35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826D6FF8278177DA00FC0B35 /* SceneDelegate.swift */; };
 		826D6FFB278177DA00FC0B35 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826D6FFA278177DA00FC0B35 /* Home.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		820B623C2786DAA000146A59 /* PhotosVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosVC.swift; sourceTree = "<group>"; };
 		826D6FF3278177DA00FC0B35 /* FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		826D6FF6278177DA00FC0B35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		826D6FF8278177DA00FC0B35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				826D6FFA278177DA00FC0B35 /* Home.swift */,
 				826D7030278434AD00FC0B35 /* ListOfPlaces.swift */,
 				826D703627847F4800FC0B35 /* DetailsOfPlace.swift */,
+				820B623C2786DAA000146A59 /* PhotosVC.swift */,
 				82F5FC6B2785D3D800DB5402 /* LocationVc.swift */,
 				826D703427847A6600FC0B35 /* FavoriteList.swift */,
 				826D6FFC278177DA00FC0B35 /* Main.storyboard */,
@@ -255,6 +258,7 @@
 				82F5FC6C2785D3D900DB5402 /* LocationVc.swift in Sources */,
 				826D703527847A6700FC0B35 /* FavoriteList.swift in Sources */,
 				826D6FF9278177DA00FC0B35 /* SceneDelegate.swift in Sources */,
+				820B623D2786DAA000146A59 /* PhotosVC.swift in Sources */,
 				826D703727847F4800FC0B35 /* DetailsOfPlace.swift in Sources */,
 				826D70602785910700FC0B35 /* FavoriteCell.swift in Sources */,
 				826D70292784189600FC0B35 /* SignUp.swift in Sources */,
