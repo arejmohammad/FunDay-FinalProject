@@ -13,12 +13,26 @@
 "reset" = "Reset Password";
 "log" = "Log in";
 "sign" = "Sign Up";
+"logout" = "Log Out";
+"accoun" = "you don't have account?";
+"forget" = "Forget your Password ?";
+"hello" = "Hello";
+"toview" = "To view this Page .. you must log in";
+"reset" = "Reset Password";
+"language" = "Language - العربية";
+"pref" = "User prefrennces";
+"info" = "User information ";
 //Alert
 "Ops" = "Ops!";
 "cpnm" = "confirm password not match";
 "OK" = "OK";
 "Registering" = "Registering";
 "success" = "you are successfully register";
+"saved" = "Saved";
+"saves2" = "The place has been saved to your favorite list";
+"shouldSign" = "You must be logged in to save it in your favorite list";
+"cancel" = "Cancel";
+"sure" = "Are you sure you want to log out?";
 //List of Places
 //zoo
 "strawberry" = "Hanging strawberry gardens";
@@ -92,11 +106,15 @@
 "anything" = "Hmm.. it doesn't look like you added anything to your favorites list";
 // deatails
 "cost" = "Cost";
-"rate" = "Rateing";
+"rate" = "Rate & Review";
 "free" = "Free";
 "goto" = "Take me to the Location";
-"save" = "Save to favorite List";
+"save" = "Save to my favorite List";
 "differ" = "Different depending on the chosen event";
-
+//Reviews
+"share1" = "Share";
+"share2" = "Share Details of your own experience at this place";
+"share4" = "Share your experience to help other";
+"review" = "Reviews";
 
 

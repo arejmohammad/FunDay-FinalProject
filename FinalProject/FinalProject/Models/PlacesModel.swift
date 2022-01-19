@@ -13,3 +13,8 @@ struct NameOfPlaces {
     var desc : String
     var image : UIImage
 }
+
+struct Reviews {
+    var Sender : String?
+    var Post : String?
+}
