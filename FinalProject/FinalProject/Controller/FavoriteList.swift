@@ -3,33 +3,44 @@ import UIKit
 import Lottie
 import Firebase
 
-class FavoriteList: UIViewController {
+class FavoriteList : UIViewController {
     
     var favoriteArray = [NameOfPlaces]()
     let db = Firestore.firestore()
-    @IBOutlet weak var FavList: UITableView!
-    @IBOutlet weak var empty1: UILabel!
-    @IBOutlet weak var empty2: UILabel!
     var deletename : String?
     var animation = Animation.named("67812-empty-box-animation")
     var animationView: AnimationView?
+    
+    @IBOutlet weak var FavList: UITableView!
+    @IBOutlet weak var empty1: UILabel!
+    @IBOutlet weak var empty2: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-         animationView = AnimationView(animation:animation)
+        animationView = AnimationView(animation:animation)
         empty1.text = "favorite".loclized()
         empty2.text = "anything".loclized()
+        empty()
         FavList.reloadData()
         loadData()
         configureAnimation()
+ 
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        empty()
         
     }
-    override func viewDidAppear(_ animated: Bool) {
-        empty()
-    }
-    
+}
+
+
+
+extension FavoriteList {
     
     func configureAnimation() {
-  
+        
         animationView!.contentMode = .scaleAspectFill
         animationView!.frame = CGRect(x: 0, y: 0, width: 400, height: 400)
         animationView!.center = view.center
@@ -38,9 +49,11 @@ class FavoriteList: UIViewController {
         animationView!.animationSpeed = 1
         
         view.addSubview(animationView!)
-        
     }
+    
+    
     func loadData (){
+        
         if Auth.auth().currentUser != nil {
             db.collection("Users").document("Places").collection("FavoritePlaces")
                 .order(by: "date")
@@ -59,6 +72,7 @@ class FavoriteList: UIViewController {
                                     let newFav = NameOfPlaces(name: newFavN, desc: newfavD, image: .remove)
                                     self.favoriteArray.append(newFav)
                                     DispatchQueue.main.async {
+                                        self.empty()
                                         self.FavList.reloadData()
                                         
                                         let indexPath = IndexPath(row: self.favoriteArray.count - 1, section: 0)
@@ -71,40 +85,50 @@ class FavoriteList: UIViewController {
                 }
         }
     }
+    
     func empty(){
-                if favoriteArray.count == 0 {
-                    configureAnimation()
-                    empty1.isHidden = false
-                    empty2.isHidden = false
-                    animationView!.play()
-                    animationView!.isHidden = false
-                    self.FavList.reloadData()
-                    
-                }else{
-                    
-                    empty1.isHidden = true
-                    empty2.isHidden = true
-                    animationView!.stop()
-                    animationView!.isHidden = true
-                    self.FavList.reloadData()
-                }
-//        if favoriteArray.isEmpty == false {
-//            empty1.isHidden = true
-//            empty2.isHidden = true
-//        }
+        
+        if favoriteArray.isEmpty == true {
+            configureAnimation()
+            empty1.isHidden = false
+            empty2.isHidden = false
+            animationView!.play()
+            animationView!.isHidden = false
+            self.FavList.reloadData()
+            
+        }else{
+            
+            empty1.isHidden = true
+            empty2.isHidden = true
+            animationView!.stop()
+            animationView!.isHidden = true
+            self.FavList.reloadData()
+        }
         
     }
     
+
+    
+    
 }
+
+
 extension FavoriteList : UITableViewDelegate , UITableViewDataSource {
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return favoriteArray.count
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = FavList.dequeueReusableCell(withIdentifier: "favorite", for: indexPath) as! FavoriteCell
+        
         cell.placeName.text = favoriteArray[indexPath.row].name
         cell.placeDesc.text = favoriteArray[indexPath.row].desc
+        
         if cell.placeName.text == "strawberry".loclized() {
             cell.placeImage.image = UIImage(named: "strawberry1")
         } else  if cell.placeName.text == "woody".loclized() {
@@ -120,7 +144,7 @@ extension FavoriteList : UITableViewDelegate , UITableViewDataSource {
         }else  if cell.placeName.text == "sparky".loclized() {
             cell.placeImage.image = UIImage(named: "spark1")
         }else  if cell.placeName.text == "bowling".loclized() {
-            cell.placeImage.image = UIImage(named: "bowling1")
+            cell.placeImage.image = UIImage(named: "go1")
         }else  if cell.placeName.text == "snowy".loclized() {
             cell.placeImage.image = UIImage(named: "snowy1")
         }else  if cell.placeName.text == "winter".loclized() {
@@ -166,13 +190,19 @@ extension FavoriteList : UITableViewDelegate , UITableViewDataSource {
         }
         return cell
     }
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         let vc = storyboard?.instantiateViewController(withIdentifier: "DetailsOfPlace") as! DetailsOfPlace
         vc.detalis = favoriteArray[indexPath.row]
         vc.modalPresentationStyle = .pageSheet
         self.present(vc, animated: true, completion: nil)
     }
+    
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
         if editingStyle == .delete {
             deletename = favoriteArray[indexPath.row].name
             deleteData()
@@ -184,7 +214,10 @@ extension FavoriteList : UITableViewDelegate , UITableViewDataSource {
             
         }
     }
+    
+    
     func deleteData(){
+        
         db.collection("Users").document("Places").collection("FavoritePlaces").document(deletename!).delete()
         { err in
             if let err = err {
@@ -194,5 +227,5 @@ extension FavoriteList : UITableViewDelegate , UITableViewDataSource {
             }
         }
     }
-    
 }
+

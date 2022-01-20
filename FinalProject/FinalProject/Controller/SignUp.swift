@@ -3,8 +3,10 @@
 import UIKit
 import Firebase
 
-class SignUp: UIViewController {
-
+class SignUp : UIViewController {
+    
+    let db = Firestore.firestore()
+    
     @IBOutlet weak var signBtn: UIButton!
     @IBOutlet weak var usernameL: UILabel!
     @IBOutlet weak var emailL: UILabel!
@@ -16,10 +18,10 @@ class SignUp: UIViewController {
     @IBOutlet weak var confirmpasswordT: UITextField!
     @IBOutlet weak var eye1: UIButton!
     
-    let db = Firestore.firestore()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         usernameL.text = "username".loclized()
         emailL.text = "email".loclized()
         passwordL.text = "pass".loclized()
@@ -29,45 +31,58 @@ class SignUp: UIViewController {
         passwordT.placeholder = "pass".loclized()
         confirmpasswordT.placeholder = "confpass".loclized()
         signBtn.setTitle("sign".loclized(), for: .normal)
+        hideKeyboardWhenTappedAround()
     }
     
     @IBAction func signup(_ sender: Any) {
+        
         if self.passwordT.text != self.confirmpasswordT.text {
+            
             let dialogMessage = UIAlertController(title: "Ops".loclized(), message: "cpnm".loclized(), preferredStyle: .alert)
             let ok = UIAlertAction(title: "OK".loclized(), style: .default, handler:nil)
             dialogMessage.addAction(ok)
             self.present(dialogMessage, animated: true, completion: nil)
-        }
-        if passwordT.text == confirmpasswordT.text {
+            
+        } else {
+            
             Auth.auth().createUser(withEmail: emailT.text!, password: passwordT.text!) { authResult, error in
+                
                 if error == nil {
+                    
                     self.db.collection("Users")
-                       .addDocument(data:
-                                       [
-                                        "name" : "\(self.usernameT.text!)",
-                                        "email": "\(self.emailT.text!)",
-                                       ])
+                        .addDocument(data:
+                                        [
+                                            "name" : "\(self.usernameT.text!)",
+                                            "email": "\(self.emailT.text!)",
+                                        ])
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home") as! UITabBarController
                     vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true, completion: nil)
                     print("you are successfully register")
+                    
                 }else{
-                    print(error?.localizedDescription)
+                    
+                    print(error!.localizedDescription)
                     let dialogMessage = UIAlertController(title: "Ops".loclized(), message: error?.localizedDescription, preferredStyle: .alert)
                     let ok = UIAlertAction(title: "OK".loclized(), style: .default, handler: nil )
-                        dialogMessage.addAction(ok)
-                        self.present(dialogMessage, animated: true, completion: nil)
+                    dialogMessage.addAction(ok)
+                    self.present(dialogMessage, animated: true, completion: nil)
                 }
+                
             }
+            
         }
     }
+    
     @IBAction func eye1Btn(_ sender: Any) {
+        
         passwordT.isSecureTextEntry.toggle()
         confirmpasswordT.isSecureTextEntry.toggle()
         if passwordT.isSecureTextEntry == false {
             eye1.setImage(UIImage(systemName: "eye"), for: .normal)
-        }else {
+        } else {
             eye1.setImage(UIImage(systemName: "eye.slash"), for: .normal)
         }
     }
 }
+

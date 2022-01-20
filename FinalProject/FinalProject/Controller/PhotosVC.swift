@@ -1,7 +1,7 @@
 
 import UIKit
 
-class PhotosVC: UIViewController {
+class PhotosVC : UIViewController {
 
     @IBOutlet weak var bigImage: UIImageView!
     var photo : UIImage?
@@ -10,6 +10,8 @@ class PhotosVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         bigImage.image = photo
+        
     }
 }

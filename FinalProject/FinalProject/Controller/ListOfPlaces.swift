@@ -1,17 +1,14 @@
 
 import UIKit
 
-class ListOfPlaces: UIViewController  {
-  
-  
+class ListOfPlaces : UIViewController  {
+    
+    
     var selectedSection = 0
     var object : NameOfPlaces?
-
-    @IBOutlet weak var plaseslist: UITableView!
-    @IBOutlet weak var searchplace: UISearchBar!
     
-    var filteredData: [NameOfPlaces]!
-
+    @IBOutlet weak var plaseslist: UITableView!
+    
     var arrayOfZoo = [
         NameOfPlaces(name: "strawberry".loclized(), desc: "strawberry2".loclized(), image: UIImage(named: "strawberry1")!),
         NameOfPlaces(name: "woody".loclized(), desc: "woody2".loclized(), image: UIImage(named: "woody1")!),
@@ -59,10 +56,13 @@ class ListOfPlaces: UIViewController  {
         super.viewDidLoad()
    
     }
-  
+    
 }
-extension ListOfPlaces : UITableViewDelegate , UITableViewDataSource {
+extension ListOfPlaces : UITableViewDelegate , UITableViewDataSource  {
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         if selectedSection == 0 {
             return arrayOfZoo.count
         }else if selectedSection == 1 {
@@ -78,8 +78,10 @@ extension ListOfPlaces : UITableViewDelegate , UITableViewDataSource {
         }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = plaseslist.dequeueReusableCell(withIdentifier: "NameAndDescCell", for: indexPath) as! NameAndDescCell
         if selectedSection == 0 {
             cell.placeName.text = arrayOfZoo[indexPath.row].name
@@ -108,7 +110,11 @@ extension ListOfPlaces : UITableViewDelegate , UITableViewDataSource {
         }
         return cell
     }
+    
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         let vc = storyboard?.instantiateViewController(withIdentifier: "DetailsOfPlace") as! DetailsOfPlace
         if selectedSection == 0 {
             vc.detalis = arrayOfZoo[indexPath.row]
@@ -125,4 +131,5 @@ extension ListOfPlaces : UITableViewDelegate , UITableViewDataSource {
         }
         navigationController?.pushViewController(vc, animated: true)
     }
+  
 }

@@ -20,7 +20,7 @@
 "toview" = "To view this Page .. you must log in";
 "reset" = "Reset Password";
 "language" = "Language - العربية";
-"pref" = "User prefrennces";
+"pref" = "Settings";
 "info" = "User information ";
 //Alert
 "Ops" = "Ops!";
@@ -116,5 +116,5 @@
 "share2" = "Share Details of your own experience at this place";
 "share4" = "Share your experience to help other";
 "review" = "Reviews";
-
+"noreviews" = "No Reviews yet";
 

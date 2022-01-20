@@ -2,8 +2,15 @@
 
 import UIKit
 import Firebase
+import Lottie
 
-class ProfileVC: UIViewController {
+class ProfileVC : UIViewController {
+    
+    var animation = Animation.named("39141-person-profile")
+    var nameToReview : String?
+    var animationView: AnimationView?
+    let db = Firestore.firestore()
+    let defaults = UserDefaults.standard
     
     @IBOutlet weak var emailTitle: UILabel!
     @IBOutlet weak var usernameTitle: UILabel!
@@ -14,17 +21,15 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var logIn: UIButton!
     @IBOutlet weak var mustLogPic: UIImageView!
     @IBOutlet weak var reset: UIButton!
-    @IBOutlet weak var language: UIButton!
     @IBOutlet weak var prefrence: UILabel!
     @IBOutlet weak var info: UILabel!
     @IBOutlet weak var logout: UIButton!
     @IBOutlet weak var helo: UILabel!
     
-    var nameToReview : String?
-    let db = Firestore.firestore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        animationView = AnimationView(animation:animation)
         helo.text = "hello".loclized()
         emailTitle.text = "email".loclized()
         usernameTitle.text = "username".loclized()
@@ -33,22 +38,22 @@ class ProfileVC: UIViewController {
         info.text = "info".loclized()
         logIn.setTitle("log".loclized(), for: .normal)
         reset.setTitle("reset".loclized(), for: .normal)
-        language.setTitle("language".loclized(), for: .normal)
         logout.setTitle("logout".loclized(), for: .normal)
         
-        if Auth.auth().currentUser != nil {
-            getData()
-            mustLogPic.isHidden = true
-            mustLog.isHidden = true
-            logIn.isHidden = true
-        }
+        empty()
+        configureAnimation()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        empty()
+    }
+    
+    
+    
     @IBAction func logOut(_ sender: Any) {
         let alert = UIAlertController(title: nil, message: "sure".loclized(), preferredStyle: .alert)
         let action = UIAlertAction(title: "logout".loclized(), style: .default) {_ in
             do {
                 try Auth.auth().signOut()
-                //                  self.performSegue(withIdentifier: "out", sender: self)
                 print("sign out sucsses")
                 self.mustLogPic.isHidden = false
                 self.mustLog.isHidden = false
@@ -61,6 +66,25 @@ class ProfileVC: UIViewController {
         alert.addAction(UIAlertAction(title: "cancel".loclized(), style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
     }
+    
+    
+    
+    @IBAction func chngLanguage(_ sender: Any) {
+        
+        let lang = UserDefaults.standard.object(forKey: "AppLanguages") as? [String]
+        if lang?.first == "ar" {
+            UserDefaults.standard.set("en", forKey: "AppLanguages")
+            UserDefaults.standard.synchronize()
+        }else {
+            UserDefaults.standard.set("ar", forKey: "AppLanguages")
+            UserDefaults.standard.synchronize()
+        }
+        exit(0)
+    }
+}
+
+
+extension ProfileVC {
     
     func getData(){
         db.collection("Users").whereField("email", isEqualTo: Auth.auth().currentUser!.email!)
@@ -81,19 +105,29 @@ class ProfileVC: UIViewController {
                 }
             }
     }
-   
     
-    @IBAction func chngLanguage(_ sender: Any) {
-        var lang = UserDefaults.standard.object(forKey: "AppLanguages") as? [String]
-        if lang?.first == "ar" {
-            UserDefaults.standard.set("en", forKey: "AppLanguages")
-            UserDefaults.standard.synchronize()
-        }else {
-            UserDefaults.standard.set("ar", forKey: "AppLanguages")
-            UserDefaults.standard.synchronize()
-        }
-        exit(0)
+    func configureAnimation() {
+        animationView!.contentMode = .scaleAspectFill
+        animationView!.frame = CGRect(x: 138, y: 190, width: 130, height: 130)
+        view.addSubview(animationView!)
+        animationView!.play()
+        animationView!.loopMode = .playOnce
+        animationView!.animationSpeed = 1
     }
-
-
+    func empty(){
+        if Auth.auth().currentUser != nil {
+            getData()
+            mustLogPic.isHidden = true
+            mustLog.isHidden = true
+            logIn.isHidden = true
+            configureAnimation()
+            animationView!.play()
+            animationView?.isHidden = false
+        }else{
+            animationView!.stop()
+            animationView?.isHidden = true
+        }
+    }
+    
 }
+

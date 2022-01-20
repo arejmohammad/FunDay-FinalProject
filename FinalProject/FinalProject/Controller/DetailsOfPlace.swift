@@ -3,7 +3,7 @@ import UIKit
 import WebKit
 import Firebase
 
-class DetailsOfPlace: UIViewController {
+class DetailsOfPlace : UIViewController {
     
     var detalis : NameOfPlaces?
     let db = Firestore.firestore()
@@ -22,6 +22,7 @@ class DetailsOfPlace: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         presentationOfDetails()
         
     }
@@ -44,9 +45,7 @@ class DetailsOfPlace: UIViewController {
     @IBAction func Reviews(_ sender: Any) {
         
         let vc3 = storyboard?.instantiateViewController(withIdentifier: "ReviewsVC") as! ReviewsVC
-        
         vc3.placeName = name.text
-        
         navigationController?.pushViewController(vc3, animated: true)
     }
     
@@ -58,24 +57,31 @@ class DetailsOfPlace: UIViewController {
 extension DetailsOfPlace : UICollectionViewDelegate , UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
         return photosArray.count
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = photos.dequeueReusableCell(withReuseIdentifier: "photosCell", for: indexPath) as! photosCell
         cell.photo.image = photosArray[indexPath.row]
         return cell
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         let vc2 = storyboard?.instantiateViewController(withIdentifier: "PhotosVC") as! PhotosVC
         vc2.photo = photosArray[indexPath.row]
         present(vc2, animated: true, completion: nil)
+        
     }
 }
 
 
 extension DetailsOfPlace {
+    
     
     func presentationOfDetails(){
         
@@ -417,7 +423,6 @@ extension DetailsOfPlace {
     func check() {
         
         let vc = storyboard?.instantiateViewController(withIdentifier: "LocationVc") as! LocationVc
-        present(vc, animated: true, completion: nil)
         
         if name.text == "strawberry".loclized() {
             vc.destanation = "strawberry"
@@ -478,6 +483,7 @@ extension DetailsOfPlace {
         }else if name.text == "alathryah".loclized() {
             vc.destanation = "alathryah"
         }
+        present(vc, animated: true, completion: nil)
     }
     
     

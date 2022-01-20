@@ -3,8 +3,8 @@
 import UIKit
 import Firebase
 
-class ResetPassword: UIViewController {
-
+class ResetPassword : UIViewController {
+    
     @IBOutlet weak var emailL: UILabel!
     @IBOutlet weak var passwordL: UILabel!
     @IBOutlet weak var emailT: UITextField!
@@ -13,18 +13,25 @@ class ResetPassword: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         rest.setTitle("reset".loclized(), for: .normal)
         emailL.text = "email".loclized()
         passwordL.text = "pass".loclized()
-
+        hideKeyboardWhenTappedAround()
+        
     }
     
     @IBAction func resetpass(_ sender: Any) {
+        
         Auth.auth().currentUser?.updatePassword(to: passT.text!) { error in
+            
             if error == nil {
+                
                 print("تم تغيير كلمه السر بنجاح")
+                
             }else{
-                print(error?.localizedDescription)
+                
+                print(error!.localizedDescription)
             }
         }
     }

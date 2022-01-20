@@ -2,22 +2,23 @@
 import UIKit
 import Firebase
 
-class NewReviewsVC: UIViewController {
+class NewReviewsVC : UIViewController {
     
-    @IBOutlet weak var reviewText: UITextView!
     let db = Firestore.firestore()
     var nameOfUsername : String?
     var nameOfPlace : String?
+    
+    @IBOutlet weak var reviewText: UITextView!
     @IBOutlet weak var labl: UILabel!
     @IBOutlet weak var share: UIButton!
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
+        
         getusername()
         labl.text = "share2".loclized()
         share.setTitle("share1".loclized(), for: .normal)
-        
+        hideKeyboardWhenTappedAround()
     }
     
     
@@ -26,15 +27,13 @@ class NewReviewsVC: UIViewController {
         checkUserIsLogIn()
         
     }
-    
 }
-
 
 
 extension NewReviewsVC {
     
     
-    func getusername (){
+    func getusername(){
         if Auth.auth().currentUser != nil {
             
             db.collection("Users").whereField("email", isEqualTo: Auth.auth().currentUser!.email!)
@@ -50,9 +49,7 @@ extension NewReviewsVC {
                     }
                 }
         }
-        
     }
-    
     
     func checkUserIsLogIn(){
         
@@ -65,7 +62,7 @@ extension NewReviewsVC {
                     "Sender" : self.nameOfUsername ?? "" ,
                     "Place" : self.nameOfPlace ?? "" ,
                     "date" : Date().timeIntervalSince1970
-                                    ])
+                ])
                 {(error) in
                     if error == nil {
                         print("new decument has been created..")
@@ -78,17 +75,9 @@ extension NewReviewsVC {
                 }
             }
             
-            
-            //        performSegue(withIdentifier: "back", sender: .none)
-            
-//            let vc = self.storyboard?.instantiateViewController(withIdentifier: "ReviewsVC") as! ReviewsVC
-            
             navigationController?.popViewController(animated: true)
-//            dismiss(animated: true, completion: nil)
             
-//            present(vc, animated: true, completion: nil)
-            
-        }else {
+        } else {
             let alert = UIAlertController(title: "Ops".loclized(), message: "shouldSign".loclized(), preferredStyle: .alert)
             let action = UIAlertAction(title: "log".loclized(), style: .default) {_ in
                 do {
@@ -104,6 +93,6 @@ extension NewReviewsVC {
             alert.addAction(UIAlertAction(title: "cancel".loclized(), style: .cancel, handler: nil))
             present(alert, animated: true, completion: nil)
         }
-        
     }
 }
+

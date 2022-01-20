@@ -1,10 +1,11 @@
 
 import UIKit
 
-class ReviewCell: UITableViewCell {
+class ReviewCell : UITableViewCell {
 
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var review: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
