@@ -54,22 +54,22 @@ extension LogIn {
     func logIn(){
         
         Auth.auth().signIn(withEmail: emailT.text!, password: passwordT.text!) {  authResult, error in
-            
+
             if error == nil {
-                
+
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home") as! UITabBarController
                 vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
-                
+
             }else{
-                
+
                 let dialogMessage = UIAlertController(title: "Ops".loclized(), message: error?.localizedDescription, preferredStyle: .alert)
                 let ok = UIAlertAction(title: "OK".loclized(), style: .default, handler: nil )
                 dialogMessage.addAction(ok)
                 self.present(dialogMessage, animated: true, completion: nil)
-                
+
                 if Auth.auth().currentUser != nil {
-                    
+
                     let dialogMessage = UIAlertController(title: "Ops".loclized(), message: error?.localizedDescription, preferredStyle: .alert)
                     let ok = UIAlertAction(title: "OK".loclized(), style: .default, handler: nil)
                     dialogMessage.addAction(ok)
